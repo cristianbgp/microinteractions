@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/thunder.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>microinteractions</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      setTimeout(() => {
+        let favicon_video_image_counter = 0;
+        let favicon_video_icon_tag = document.querySelector("link[rel='icon']");
+        let favicon_video_images = [
+          "https://favicongenerator.s3.amazonaws.com/867954c1064b4.png",
+          "https://favicongenerator.s3.amazonaws.com/f0bc74bed341e.png",
+          "https://favicongenerator.s3.amazonaws.com/2863d8bd4d873.png",
+          "https://favicongenerator.s3.amazonaws.com/184dc1812403c.png",
+          "https://favicongenerator.s3.amazonaws.com/2c713038be622.png",
+          "https://favicongenerator.s3.amazonaws.com/06f296659cfb9.png",
+          "https://favicongenerator.s3.amazonaws.com/04da6a5cb3b28.png",
+          "https://favicongenerator.s3.amazonaws.com/f9755ff6bb45b.png",
+          "https://favicongenerator.s3.amazonaws.com/10a8cbda0f013.png",
+          "https://favicongenerator.s3.amazonaws.com/db192a6589954.png",
+          "https://favicongenerator.s3.amazonaws.com/687aff4796f62.png",
+          "https://favicongenerator.s3.amazonaws.com/e1f3c0a520985.png",
+          "https://favicongenerator.s3.amazonaws.com/5f7b73ade4116.png",
+          "https://favicongenerator.s3.amazonaws.com/8bd5906abaf86.png",
+          "https://favicongenerator.s3.amazonaws.com/17bae38628d46.png",
+          "https://favicongenerator.s3.amazonaws.com/95bb4013a8fb9.png",
+          "https://favicongenerator.s3.amazonaws.com/2406f14c0e27f.png",
+          "https://favicongenerator.s3.amazonaws.com/738dfb8460241.png",
+          "https://favicongenerator.s3.amazonaws.com/bcec5bd6cef58.png",
+          "https://favicongenerator.s3.amazonaws.com/5f825721c721d.png",
+          "https://favicongenerator.s3.amazonaws.com/d5d5886d77ea7.png",
+          "https://favicongenerator.s3.amazonaws.com/8f9c1a0b9700b.png",
+          "https://favicongenerator.s3.amazonaws.com/c0889135825ca.png",
+          "https://favicongenerator.s3.amazonaws.com/94b9b1b75a3a6.png",
+          "https://favicongenerator.s3.amazonaws.com/4d2720322c551.png",
+          "https://favicongenerator.s3.amazonaws.com/810ff8b1220bd.png",
+          "https://favicongenerator.s3.amazonaws.com/4c728300b47b6.png",
+          "https://favicongenerator.s3.amazonaws.com/dc1d7222c0de7.png",
+          "https://favicongenerator.s3.amazonaws.com/32480d444f68c.png",
+          "https://favicongenerator.s3.amazonaws.com/a57dc2965195a.png",
+          "https://favicongenerator.s3.amazonaws.com/e6f2dae38ebd.png",
+          "https://favicongenerator.s3.amazonaws.com/7dc1947c9d5be.png",
+          "https://favicongenerator.s3.amazonaws.com/d6fd849b9d0f.png",
+        ];
+        async function favicon_video_to_data_url(url, callback) {
+          let xhr = new XMLHttpRequest();
+          xhr.onload = function () {
+            let reader = new FileReader();
+            reader.onloadend = function () {
+              callback(reader.result);
+            };
+            reader.readAsDataURL(xhr.response);
+          };
+          xhr.open("GET", url);
+          xhr.responseType = "blob";
+          xhr.send();
+        }
+
+        let favicon_video_loaded_images = [];
+
+        favicon_video_images.map((url, idx) => {
+          favicon_video_to_data_url(url, function (dataUrl) {
+            favicon_video_loaded_images[idx] = dataUrl;
+          });
+        });
+
+        setInterval(function () {
+          if (favicon_video_loaded_images[favicon_video_image_counter]) {
+            favicon_video_icon_tag.href = favicon_video_loaded_images[
+              favicon_video_image_counter
+            ].replace("application/octet-stream", "image/png");
+          }
+          if (
+            favicon_video_image_counter ==
+            favicon_video_loaded_images.length - 1
+          )
+            favicon_video_image_counter = 0;
+          else favicon_video_image_counter++;
+        }, 200);
+      }, 2000);
+    </script>
+  </body>
+</html>

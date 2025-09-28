@@ -1,0 +1,9 @@
+export { default as codeableImg } from "./codeable.jpg";
+export { default as cristianbgpImg } from "./cristianbgp.jpg";
+export { default as motionImg } from "./motion.png";
+export { default as reactImg } from "./react.png";
+export { default as dataImg } from "./data.jpg";
+export { default as dtmfImg } from "./debi-tirar-mas-fotos.jpg";
+export { default as lastSummerImg } from "./last-summer.jpg";
+export { default as loveMeLoveMeNotImg } from "./love-me-love-me-not.jpg";
+export { default as quienTraeLasCornetasImg } from "./quien-trae-las-cornetas.jpg";
