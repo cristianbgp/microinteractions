@@ -104,7 +104,7 @@ function PhoneScreen({
   };
 
   return (
-    <div className="flex h-[300px] w-[220px] flex-col rounded-[1.5rem] border-6 border-gray-800 p-1.5">
+    <div className="flex h-[200px] w-[220px] flex-col rounded-[1.5rem] border-6 border-gray-800 p-1.5 lg:h-[300px]">
       {/* Phone screen */}
       <div className="flex h-full flex-col rounded-[1.5rem] bg-white">
         {/* Header */}
@@ -131,7 +131,7 @@ function PhoneScreen({
 
         {/* Input area */}
         <div className="border-t border-gray-200 p-2">
-          <div className="flex items-center gap-1.5 rounded-full border border-gray-300 bg-gray-50 px-3 py-1.5">
+          <div className="grid grid-cols-[1fr_auto] items-center gap-1.5 rounded-full border border-gray-300 bg-gray-50 px-3 py-1.5">
             <input
               type="text"
               value={inputValue}
@@ -231,7 +231,9 @@ export default function AnimatedDualChatPage() {
             onInputChange={handleLeftInputChange}
             onSendMessage={handleLeftSendMessage}
             showTypingIndicator={rightTyping}
-            Avatar={<div className="h-6 w-6 rounded-full bg-gradient-to-br from-pink-400 to-purple-200" />}
+            Avatar={
+              <div className="h-6 w-6 rounded-full bg-gradient-to-br from-pink-400 to-purple-200" />
+            }
           />
         </motion.div>
 
@@ -270,7 +272,9 @@ export default function AnimatedDualChatPage() {
             onInputChange={handleRightInputChange}
             onSendMessage={handleRightSendMessage}
             showTypingIndicator={leftTyping}
-            Avatar={<div className="h-6 w-6 rounded-full bg-gradient-to-br from-neutral-700 to-neutral-200" />}
+            Avatar={
+              <div className="h-6 w-6 rounded-full bg-gradient-to-br from-neutral-700 to-neutral-200" />
+            }
           />
         </motion.div>
       </div>
